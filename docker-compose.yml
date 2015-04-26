@@ -1,0 +1,18 @@
+dev:
+  build: .
+  volumes:
+    - .:/pirouette
+  working_dir: /pirouette
+  # CAUTION! This is far from ideal, and potentially hazardous. Sadly,
+  # the following port mapping does not seem to work?! Also, the cljs
+  # repl boot task does not seem to take account of the port...
+  net: "host"
+  #ports:
+  #  # see build.boot for the corresponding dev utilities
+  #  # index.html and assets
+  #  - "3000:3000"
+  #  # nrepl port
+  #  - "33666:33666"
+  #  # web socket for asset reload
+  #  - "33667:33667"
+  command: boot dev
